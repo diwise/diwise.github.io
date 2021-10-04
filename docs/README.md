@@ -15,3 +15,5 @@ Här på denna yta kommer vi publicera information och dokumentation gällande p
 
 ## Kontakt
 Behöver du komma i kontakt med oss eller vill du veta mer om vad vi kan erbjuda? Läs mer på vår webbplats, [diwise.io](https://diwise.io/)
+
+diwise
