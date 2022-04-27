@@ -5,7 +5,16 @@ tagline: Masarin Consulting Group
 heroImage: /images/diwise-logo-dark.png
 ---
 
+```mermaid
+stateDiagram
+    [*] --> Still
+    Still --> [*]
 
+    Still --> Moving
+    Moving --> Still
+    Moving --> Crash
+    Crash --> [*]
+```
 
 ## Introduktion Diwise
 diwise är en IoT-kommunikationsplattform för att ta emot sensordata och reglera fysiska styrsystem som innebär att verksamhetssystem frikopplas från både kommunikationsgränssnitt och olika sensortyper.
