@@ -53,5 +53,8 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+exclude:
+  - README.md
+
 mermaid:
   src: '/assets/js/mermaid.js'
