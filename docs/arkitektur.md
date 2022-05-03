@@ -9,14 +9,30 @@ UTKAST!
 
 
 # Målarkitektur
-
+## Bakgrund
 [Målarkitektur för IoT och dataplattform](https://smartstad.stockholm/wp-content/uploads/sites/10/2021/05/M%C3%A5larkitektur-f%C3%B6r-IoT-och-dataplattform.pdf)
+Detta dokument beskriver övergripande vad som krävs
+för realisering av en Internet of Things (IoT) och dataarkitektur som
+ligger till grund för en del av realiseringen av strategin för
+en smart och uppkopplad stad
 
 ## Förmågor och funktioner
 !['Förmågor och funktioner'](/assets/img/formagorochfunktioner.png)
 
 ### Implementation i diwise
 !['diwise'](/assets/img/diwise.png)
+
+1. data från sensor, t.ex. LoRaWAN
+2. integration med externa datakäller, t.ex. http
+3. data från applikationsserver, ofta json via mqtt
+4. hämta information om sensortypen
+5. normaliserat data skickas till iot-core
+6. data berikas med t.ex. position
+7. data skickas till transformeringstjänsten som transformerar data till Smart Data Models (FIWARE)
+8. data POST:as via http till en distribuerad [context-broker](https://github.com/diwise/context-broker)
+9. beroende på b.la. modelltyp väljs en underliggande context-broker, t.ex. Orion-LD
+10. data kan hämtas och lämnas via NGSI API. 
+11. externa system och konsumenter kommunicerar via API Gateway
 
 ### Samla in
 !['Samla in'](/assets/img/samlain.png)
@@ -30,7 +46,8 @@ med externa datakällor vars information kan vara lika viktig att
 komplettera dessa dataflöden med.
 
 #### Implementation i diwise
-[iot-agent](https://github.com/diwise/iot-agent) har som uppgift att...
+[iot-agent](https://github.com/diwise/iot-agent) har som uppgift att samla in data från olika producenter av data (sensorer, IoT-plattformar och andra externa datakällor). 
+Insamling sker via mqtt och http.
 
 <img src="/assets/img/github.png" alt="GitHub" width="34" height="31" title="GitHub">[iot-agent](https://github.com/diwise/iot-agent)
 
