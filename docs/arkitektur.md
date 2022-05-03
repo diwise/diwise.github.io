@@ -11,6 +11,7 @@ UTKAST!
 # Målarkitektur
 ## Bakgrund
 [Målarkitektur för IoT och dataplattform](https://smartstad.stockholm/wp-content/uploads/sites/10/2021/05/M%C3%A5larkitektur-f%C3%B6r-IoT-och-dataplattform.pdf)
+
 Detta dokument beskriver övergripande vad som krävs
 för realisering av en Internet of Things (IoT) och dataarkitektur som
 ligger till grund för en del av realiseringen av strategin för
