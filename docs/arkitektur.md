@@ -19,7 +19,7 @@ UTKAST!
 ### Strukturen innehåller principer istället för detaljer
 ### Syfte med arkitekturen
 ### Målgrupp
-## 3 Arkitektur – logisk indelning
+## Arkitektur – logisk indelning
 ### Den smarta stadens arkitektur
 ### Komplexitet i den smarta staden
 ### Styrande principer
