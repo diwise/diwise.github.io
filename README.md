@@ -8,7 +8,7 @@ Dokumentationen byggs med [hugo](https://gohugo.io) baserat på den struktur som
 
 * Klona ner detta repository
 * Se till att ha hugo installerat. Se [https://gohugo.io/installation/](https://gohugo.io/installation/).
-* Uppdatera temat som används med `git submodule update --remote`
+* Uppdatera temat som används med `git submodule sync` följt av `git update --init --force`
 * Navigera in i `site`
 * Starta automatisk sidgenerering och live reload med `hugo server`
 * Se resultatet live via [http://localhost:1313](http://localhost:1313).
