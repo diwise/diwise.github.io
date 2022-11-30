@@ -1,8 +1,18 @@
-## Introduktion Diwise
-diwise är en IoT-kommunikationsplattform för att ta emot sensordata och reglera fysiska styrsystem som innebär att verksamhetssystem frikopplas från både kommunikationsgränssnitt och olika sensortyper.
+## GitHub Pages för Diwise
 
-## Dokumentation
-Här på denna yta kommer vi publicera teknisk information samt dokumentation gällande plattformen Diwise. 
+Här hanterar vi mer teknisk dokumentation än den som annars finns på [diwise.se](https://diwise.se)
 
-## Kontakt
-Behöver du komma i kontakt med oss eller vill du veta mer om vad vi kan erbjuda? Läs mer på vår webbplats, [diwise.io](https://diwise.io/)
+Dokumentationen byggs med [hugo](https://gohugo.io) baserat på den struktur som finns under katalogen [`site`](./site). Detta kan göras med live reload under redigeringen, eller för publicering med hjälp av en GitHub Action när en merge görs till [`main`](https://github.com/diwise/diwise.github.io/tree/main)
+
+### Hur gör jag?
+
+* Klona ner detta repository
+* Se till att ha hugo installerat. Se [https://gohugo.io/installation/](https://gohugo.io/installation/).
+* Uppdatera temat som används med `git submodule sync` följt av `git update --init --force`
+* Navigera in i `site`
+* Starta automatisk sidgenerering och live reload med `hugo server`
+* Se resultatet live via [http://localhost:1313](http://localhost:1313).
+
+### Ok, men sedan då?
+
+Hur temat som används fungerar finns beskrivet på [https://mcshelby.github.io/hugo-theme-relearn/](https://mcshelby.github.io/hugo-theme-relearn/).
