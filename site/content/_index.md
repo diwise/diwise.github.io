@@ -5,6 +5,8 @@ title = "Diwise"
 
 Om sakerna omkring dig kunde prata, vad skulle de säga?
 
+
+
 ## Introduktion Diwise
 diwise är en IoT-kommunikationsplattform för att ta emot sensordata och reglera fysiska styrsystem som innebär att verksamhetssystem frikopplas från både kommunikationsgränssnitt och olika sensortyper.
 
