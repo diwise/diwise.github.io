@@ -12,3 +12,7 @@ Dokumentationen byggs med [hugo](https://gohugo.io) baserat på den struktur som
 * Navigera in i `site`
 * Starta automatisk sidgenerering och live reload med `hugo server`
 * Se resultatet live via [http://localhost:1313](http://localhost:1313).
+
+### Ok, men sedan då?
+
+Hur temat som används fungerar finns beskrivet på [https://mcshelby.github.io/hugo-theme-relearn/](https://mcshelby.github.io/hugo-theme-relearn/).
