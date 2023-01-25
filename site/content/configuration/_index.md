@@ -1,7 +1,8 @@
 +++
 archetype = "chapter"
-title = "Avancerad konfiguration"
-weight = 4
+title = "Konfiguration"
+url = "configuration"
+weight = 5
 menuPre = "<i class='fas fa-tools'></i> "
 +++
 
