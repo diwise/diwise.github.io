@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "Introduktion"
+title = "Introduction"
 url  = "intro"
 weight = 1
 menuPre = "<i class='fas fa-info-circle'></i> "

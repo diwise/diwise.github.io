@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "Komma igång"
+title = "Getting Started"
 url = "getting-started"
 weight = 4
 menuPre = "<i class='fas fa-wrench'></i> "

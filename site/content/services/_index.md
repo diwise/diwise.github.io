@@ -1,6 +1,6 @@
 +++
 archetype = "chapter"
-title = "Mikrotjänster"
+title = "Microservices"
 weight = 3
 menuPre = "<i class='fas fa-cogs'></i> "
 +++
