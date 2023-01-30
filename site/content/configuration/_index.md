@@ -6,4 +6,4 @@ weight = 5
 menuPre = "<i class='fas fa-tools'></i> "
 +++
 
-Mer detaljerad information och konfigurationshjälp.
+More detailed information and help with configuration.

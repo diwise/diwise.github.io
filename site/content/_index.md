@@ -3,16 +3,15 @@ archetype = "home"
 title = "Diwise"
 +++
 
-Om sakerna omkring dig kunde prata, vad skulle de säga?
+If the things around you could talk, what would they say?
 
 
+## Introduction Diwise
+diwise is an IoT communication platform that receives data from sensors and regulates physical control systems, which means that business systems are separated from both communication interfaces and different sensor types.
 
-## Introduktion Diwise
-diwise är en IoT-kommunikationsplattform för att ta emot sensordata och reglera fysiska styrsystem som innebär att verksamhetssystem frikopplas från både kommunikationsgränssnitt och olika sensortyper.
+## Documentation
+On these pages we will publish technical information and documentation regarding the platform.
 
-## Dokumentation
-Här på denna yta kommer vi publicera teknisk information samt dokumentation gällande plattformen Diwise. 
-
-## Kontakt
-Behöver du komma i kontakt med oss eller vill du veta mer om vad vi kan erbjuda? Läs mer på vår webbplats, [diwise.se](https://diwise.se/).
+## Contact
+If you want to get in touch with us or learn more about what we can offer, check out our website [diwise.se](https://diwise.se/).
 

@@ -5,6 +5,6 @@ weight = 3
 menuPre = "<i class='fas fa-cogs'></i> "
 +++
 
-Dokumentation om drift och användning av våra ingående tjänster.
+Documentation regarding deployment and use of our included services.
 
 {{% children sort="title" %}}

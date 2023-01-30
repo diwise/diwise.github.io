@@ -6,4 +6,4 @@ weight = 1
 menuPre = "<i class='fas fa-info-circle'></i> "
 +++
 
-En introduktion för utveckling, installation och drift.
+An introduction to development, installation and deployment.
