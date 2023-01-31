@@ -5,13 +5,15 @@ menuPre = "<i class='fas fa-satellite-dish'></i> "
 tags = ["iot"]
 +++
 
+## Architecture
+
 {{< mermaid >}}
 C4Component
 
     Container_Boundary(b1, "iot-agent") {
 
         Container_Boundary(apib, "API") {
-            Component(api, "API", "", "handles incoming messages")
+            Component(api, "API", "", "handles incoming messagessss")
         }
 
         Container_Boundary(msgp, "Message Processor") {
@@ -32,3 +34,11 @@ C4Component
     UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="3")
 
 {{< /mermaid >}}
+
+## Observability
+
+### Metrics
+
+| Name | Type | Description |
+| ---  | ---  | ---         |
+| mqtt.messages | counter | Total number of received mqtt messages |
