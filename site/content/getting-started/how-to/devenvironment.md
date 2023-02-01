@@ -1,5 +1,5 @@
 +++
-title = "Development environment"
+title = "Set up development environment"
 url = "getting-started/how-to/dev-environment"
 menuPre = "<i class='fas fa-satellite-dish'></i> "
 tags = ["usage,docs"]
@@ -16,6 +16,7 @@ Provided that you have all the prerequisites installed on your computer, the fir
     git clone git@github.com:diwise/diwise.git
 
 You can now open the project in your IDE and familiarise yourself with it.
+
 ### Preparations
 The docker compose environment assumes that you have modified your hosts file to add local DNS entries for diwise.local and iam.diwise.local.
 
