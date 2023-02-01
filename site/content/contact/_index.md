@@ -1,7 +1,7 @@
 +++
 title = "Get in touch"
 url = "contact"
-menuPre = "<i class='fas fa-phone-alt'></i> "
+menuPre = "<i class='fas fa-at'></i> "
 tags = ["contact"]
 +++
 
