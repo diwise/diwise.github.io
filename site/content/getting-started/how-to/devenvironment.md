@@ -1,6 +1,7 @@
 +++
 title = "Set up development environment"
 url = "getting-started/how-to/dev-environment"
+description = "How to set up the development environment"
 menuPre = "<i class='fas fa-satellite-dish'></i> "
 tags = ["usage,docs"]
 weight = 1

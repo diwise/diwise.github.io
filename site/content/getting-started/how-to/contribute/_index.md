@@ -1,6 +1,7 @@
 +++
 title = "Contribute"
 url = "getting-started/how-to/contribute"
+description = "How to contribute code or report issues"
 menuPre = "<i class='fas fa-satellite-dish'></i> "
 tags = ["usage,docs"]
 +++
