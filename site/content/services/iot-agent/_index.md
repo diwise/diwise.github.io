@@ -25,7 +25,7 @@ C4Component
         Container_Boundary(msgp, "Message Processor") {
             Component(decoderreg, "Decoder Registry", "", "contains all available decoders")
             Component(decoder, "Decoder", "", "decodes incoming sensor specific<br>payloads to internal format")
-            Component(converterreg, "Converter registry", "", "contains all available converters")
+            Component(converterreg, "Converter Registry", "", "contains all available converters")
             Component(converter, "Converter", "", "converts internal format<br>to LWM2M SenML")
         }
 
@@ -107,7 +107,7 @@ The documented metrics and tracing data below will be generated if the environme
 
 #### Logging
 
-All logging is sent to stdout in a structured json format so that it can be filtered and redirected to your logging aggregator of choice. If tracing is enabled the log outut will be decorated with the corresponding traceID for easier correlation.
+All logging is sent to stdout in a structured json format so that it can be filtered and redirected to your logging aggregator of choice. If tracing is enabled the log output will be decorated with the corresponding traceID for easier correlation.
 
 #### Metrics
 
@@ -117,7 +117,7 @@ All logging is sent to stdout in a structured json format so that it can be filt
 
 #### Tracing
 
-The following traces are created at the application level, provided that :
+The following traces are created at the application level:
 
 | Span | Attributes | Created By | Description |
 | ---  | ---        | ---        | ---         |

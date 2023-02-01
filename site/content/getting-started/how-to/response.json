@@ -1,0 +1,32 @@
+{
+    "devEUI": "a1b2bc3d4e5f6",
+    "deviceID": "intern-a1b2bc3d4e5f6",
+    "name": "name",
+    "description": "description",
+    "location": {
+        "latitude": 0,
+        "longitude": 0,
+        "altitude": 0
+    },
+    "environment": "water",
+    "types": [
+        "urn:oma:lwm2m:ext:3303",
+        "urn:oma:lwm2m:ext:3302",
+        "urn:oma:lwm2m:ext:3301"
+    ],
+    "sensorType": {
+        "id": 1,
+        "name": "tem_lab_14ns",
+        "description": "",
+        "interval": 3600
+    },
+    "lastObserved": "0001-01-01T00:00:00Z",
+    "active": true,
+    "tenant": "default",
+    "status": {
+        "batteryLevel": 0,
+        "statusCode": 0,
+        "timestamp": ""
+    },
+    "interval": 60
+}
