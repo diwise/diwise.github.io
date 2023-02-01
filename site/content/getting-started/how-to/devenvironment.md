@@ -13,7 +13,10 @@ weight = 1
 
 Provided that you have all the prerequisites installed on your computer, the first step to getting started with diwise is to check out the [main repository](https://github.com/diwise/diwise) from github.com. Copy and paste the line below into your terminal, then press enter:
 
+
+```bash 
     git clone git@github.com:diwise/diwise.git
+```
 
 You can now open the project in your IDE and familiarise yourself with it.
 
@@ -23,36 +26,48 @@ The docker compose environment assumes that you have modified your hosts file to
 ##### MacOSX:
 
 Edit your /private/etc/hosts file to include the two lines:
-    
+
+```bash 
     127.0.0.1 diwise.local
     127.0.0.1 iam.diwise.local
+```
 
 Then invoke the following command to allow the mappings to take effect:
 
+```bash
     sudo killall -HUP mDNSResponder
+```
 
 ##### Windows:
 Edit your C:\Windows\System32\drivers\etc\hosts file to include the two lines:
 
+```bash 
     127.0.0.1 diwise.local
     127.0.0.1 iam.diwise.local
+```
 
 ### Running and testing
 You can use the commands below to start, test and take down the composed environment. The commands assume you are standing at the root of the project directory.
 
 ##### Run the compose environment
+```bash
     docker compose -f deployments/docker/docker-compose.yaml up
+```
 
 ##### Sending data packets
 While the compose environment is up and running, data packets can be ingested using curl or another tool of your choice by posting data to https://diwise.local:8443/api/v0/messages.
 
 ##### Clean up environment after testing
+```bash 
     docker compose -f deployments/docker/docker-compose.yaml down -v --remove-orphans
+```
 
 ### Observability
 To run diwise with log, metric and trace aggregation enabled using tools like [fluent-bit](https://fluentbit.io), [loki](https://grafana.com/oss/loki/), [otel-collector](https://opentelemetry.io/docs/collector/) and [tempo](https://grafana.com/oss/tempo/). These are set up in a separate docker compose for performance reasons and must be explicitly included when starting the environment.
 
+```bash 
     docker compose -f deployments/docker/docker-compose.yaml -f deployments/docker/docker-compose.o11y.yaml up
+```
 
 Once started the data collected by these tools will be accessible via https://diwise.local:8443/grafana/
 
@@ -63,6 +78,7 @@ On docker compose up, the services will start with MQTT disabled. The recommende
 
 An example configuration looks like this:
 
+```bash 
     version: '3'
     services:
 
@@ -73,7 +89,10 @@ An example configuration looks like this:
                 MQTT_USER: '<mqtt-user>'
                 MQTT_PASSWORD: '<mqtt-password>'
                 MQTT_TOPIC_0: '<mqtt-topic>'
+```
 
 And is merged with the default configuration by adding a -f argument to compose like so:
 
+```bash 
     docker compose -f deployments/docker/docker-compose.yaml -f deployments/docker/docker-compose.override.yaml up
+```
