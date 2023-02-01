@@ -57,6 +57,8 @@ C4Container
 
 {{< /mermaid >}}
 
+**TODO:** Add a diagram that explains the inner workings of the context broker.
+
 ### Endpoints
 
 The context broker implements a subset of the NGSI-LD API. In this section we will document what specific endpoints have been implemented.
