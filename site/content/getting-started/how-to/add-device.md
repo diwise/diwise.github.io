@@ -77,7 +77,7 @@ This *record* shows that a sensor value (`"n": "5700"`) of type float has the va
 
 ### Add device metadata
 
-Device metadata is stored in iot-device-mgmt. When iot-device-mgmt starts up it load data from *csv*-files and adds information to its database. 
+Device metadata is stored in iot-device-mgmt. When iot-device-mgmt starts up it load data from *csv*-files and adds information to its database.
 
 The file *30.devices.csv* contains data about sensors.
 
@@ -131,4 +131,3 @@ Compose up the environment with the following command
 ```bash
 docker compose -f deployments/docker/docker-compose.yaml -f /path/to/docker-compose.override.yaml up
 ```
-
