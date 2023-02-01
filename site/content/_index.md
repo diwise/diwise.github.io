@@ -13,5 +13,7 @@ diwise is an IoT communication platform that receives data from sensors and regu
 On these pages we will publish technical information and documentation regarding the platform.
 
 ## Contact
-If you want to get in touch with us or learn more about what we can offer, check out our website [diwise.se](https://diwise.se/).
+Go [here](/contact) for ways to get in touch with us. 
+
+For information about diwise in Swedish, check out our website [diwise.se](https://diwise.se/).
 
