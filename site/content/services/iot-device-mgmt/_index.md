@@ -17,6 +17,8 @@ The iot-device-mgmt service is responsible for managing all the registered devic
 C4Component
 
     Container_Ext(keycloak, "Keycloak", "")
+    Container_Ext(devmgmt-web, "Device Management UI", "")
+    Container_Ext(eventsubs, "Third Party Event Subscribers", "")
 
     Container_Boundary(b1, "iot-device-mgmt") {
 
@@ -25,8 +27,8 @@ C4Component
         }
 
         Container_Boundary(events, "Events") {
+            Component(cloudevt, "Cloud Event Generator", "", "generates cloud events to<br>registered subscribers")
             Component(db, "In Memory Database", "", "contains all registered<br>devices")
-            Component(cloudevt, "Cloud Event Generator", "", "generates cloud events to<br>registered subscribers")            
         }
 
         Container_Boundary(monitor, "Monitoring") {
@@ -38,6 +40,10 @@ C4Component
     UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="3")
 
 {{< /mermaid >}}
+
+### Emitted Events
+
+**TODO:** Document what events are emitted from this service via SSE or as cloud events.
 
 ### Endpoints
 
