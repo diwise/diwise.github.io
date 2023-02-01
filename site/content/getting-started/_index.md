@@ -19,8 +19,8 @@ You can now open the project in your IDE and familiarise yourself with it.
 ### Preparations
 The docker compose environment assumes that you have modified your hosts file to add local DNS entries for diwise.local and iam.diwise.local.
 
-##### MacOSX:
-
+{{< tabs >}}
+{{% tab name="MacOSX" %}}
 Edit your /private/etc/hosts file to include the two lines:
     
     127.0.0.1 diwise.local
@@ -29,12 +29,18 @@ Edit your /private/etc/hosts file to include the two lines:
 Then invoke the following command to allow the mappings to take effect:
 
     sudo killall -HUP mDNSResponder
-
-##### Windows:
+{{% /tab %}}
+{{% tab name="Windows" %}}
 Edit your C:\Windows\System32\drivers\etc\hosts file to include the two lines:
 
     127.0.0.1 diwise.local
     127.0.0.1 iam.diwise.local
+{{% /tab %}}
+{{% tab name="Linux" %}}
+TODO
+{{% /tab %}}
+{{< /tabs >}}
+
 
 ### Running and testing
 You can use the commands below to start, test and take down the composed environment. The commands assume you are standing at the root of the project directory.
