@@ -19,7 +19,7 @@ C4Component
     Container_Boundary(b1, "iot-agent") {
 
         Container_Boundary(apib, "API") {
-            Component(api, "API", "", "handles incoming messagessss")
+            Component(api, "API", "", "handles incoming messages")
         }
 
         Container_Boundary(msgp, "Message Processor") {
@@ -123,6 +123,7 @@ The following traces are created at the application level:
 | ---  | ---        | ---        | ---         |
 | forward-message | *none* | messagehandler | Spans the operation from the time the MQTT message handler recieves a message handler, until the forwarding endpoint returns a result. |
 | incoming-message | _none_ | api | Spans the operation of processing an incoming message payload. |
+| find-device-from-deveui | *none* | device mgmt client | Spans a request to device management's /api/v0/devices?devEUI=<<id>> endpoint. |
 
 ### Run Book
 

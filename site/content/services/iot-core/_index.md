@@ -119,6 +119,7 @@ The following traces are created at the application level:
 | Span | Attributes | Created By | Description |
 | ---  | ---        | ---        | ---         |
 | rcv-cmd | *none* | main | Spans the handling of an incoming command on the iot-core queue. |
+| find-device-from-id | *none* | device mgmt client | Spans a request to device management's /api/v0/devices/{deviceId} endpoint. |
 
 ### Run Book
 
