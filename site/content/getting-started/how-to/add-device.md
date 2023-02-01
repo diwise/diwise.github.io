@@ -10,6 +10,68 @@ tags = ["usage,docs"]
 The device/sensor that should be added need to be of a known type, that is, a decoder for the type of sensor must already exist and the device/sensor should be provisioned within the LoRa application server.
 {{% /notice %}}
 
+
+## How to add a new sensor
+
+### Add device metadata
+
+Device metadata is stored in iot-device-mgmt. When iot-device-mgmt starts up it load data from *csv*-files and adds information to its database.
+
+The file *30.devices.csv* contains data about sensors.
+
+```csv
+devEUI;internalID;lat;lon;where;types;decoder;name;description;active;tenant;interval
+a1b2bc3d4e5f6;intern-a1b2bc3d4e5f6;0;0;air;urn:oma:lwm2m:ext:3303;tem_lab_14ns;;;true;default;0
+```
+
+| Column | Description |
+| ------ | ----------- |
+| devEUI | Physical ID of sensor |
+| internalID | DeviceID used in diwise |
+| lat | Latitude |
+| lon | Longitude |
+| where | [Environments]({{< ref "/intro/environments" >}}) |
+| types | [type of measurements]({{< ref "/intro/measurements" >}}) |
+| decoder | name of the decoder to use, [supported sensor types]({{< ref "/intro/supported-sensor-types" >}}) |
+| name | Display name to be used i dashboard |
+| description | Description to be used in dashboard |
+| active | true or false, only active sensors will pubslish output |
+| tenant | name of tenant |
+| interval | 0 |
+
+### Compose override
+
+Ensure that your [Development environment]({{< ref "/getting-started/how-to/devenvironment" >}}) is set up accordantly.
+
+Then create an [docker compose override file](https://docs.docker.com/compose/extends/) with your custom settings and modified *30.devices.csv* with your added sensor.  
+
+```yaml
+version: '3'
+services:
+  iot-agent:
+    environment:
+      MQTT_DISABLED: 'false'
+      MQTT_HOST: 'your.mqtt.host'
+      MQTT_PORT: '1883'
+      MQTT_USER: '<mqtt-user>'
+      MQTT_PASSWORD: '<mqtt-password>'
+      MQTT_TOPIC_0: '<mqtt-topic>'      
+
+  iot-device-mgmt:
+    image: 'diwise/iot-device-mgmt:latest'
+    volumes:
+      - ./path/to/custom/data:/opt/diwise/config/data
+
+```
+
+Compose up the environment with the following command
+
+```bash
+docker compose -f deployments/docker/docker-compose.yaml -f /path/to/docker-compose.override.yaml up
+```
+
+If everything is set up correct diwise should start and begin to listen to incoming payloads.
+
 ## Background
 
 {{< mermaid >}}
@@ -72,62 +134,3 @@ The second record contains the measurement value, in this case it's a *SensorVal
 ```
 
 This *record* shows that a sensor value (`"n": "5700"`) of type float has the value *-5.8*. See the SenML specification for more information.
-
-## How to add a new sensor
-
-### Add device metadata
-
-Device metadata is stored in iot-device-mgmt. When iot-device-mgmt starts up it load data from *csv*-files and adds information to its database.
-
-The file *30.devices.csv* contains data about sensors.
-
-```csv
-devEUI;internalID;lat;lon;where;types;decoder;name;description;active;tenant;interval
-a1b2bc3d4e5f6;intern-a1b2bc3d4e5f6;0;0;air;urn:oma:lwm2m:ext:3303;tem_lab_14ns;;;true;default;0
-```
-
-| Column | Description |
-| ------ | ----------- |
-| devEUI | Physical ID of sensor |
-| internalID | DeviceID used in diwise |
-| lat | Latitude |
-| lon | Longitude |
-| where | [Environments]({{< ref "/intro/environments" >}}) |
-| types | [type of measurements]({{< ref "/intro/measurements" >}}) |
-| decoder | name of the decoder to use, [supported sensor types]({{< ref "/intro/supported-sensor-types" >}}) |
-| name | Display name to be used i dashboard |
-| description | Description to be used in dashboard |
-| active | true or false, only active sensors will pubslish output |
-| tenant | name of tenant |
-| interval | 0 |
-
-### Compose override
-
-Ensure that your [Development environment]({{< ref "/getting-started/how-to/devenvironment" >}}) is set up accordantly.
-
-Then create an [docker compose override file](https://docs.docker.com/compose/extends/) with your custom settings and modified *30.devices.csv* with your added sensor.  
-
-```yaml
-version: '3'
-services:
-  iot-agent:
-    environment:
-      MQTT_DISABLED: 'false'
-      MQTT_HOST: 'your.mqtt.host'
-      MQTT_PORT: '1883'
-      MQTT_USER: '<mqtt-user>'
-      MQTT_PASSWORD: '<mqtt-password>'
-      MQTT_TOPIC_0: '<mqtt-topic>'      
-
-  iot-device-mgmt:
-    image: 'diwise/iot-device-mgmt:latest'
-    volumes:
-      - ./path/to/custom/data:/opt/diwise/config/data
-
-```
-
-Compose up the environment with the following command
-
-```bash
-docker compose -f deployments/docker/docker-compose.yaml -f /path/to/docker-compose.override.yaml up
-```

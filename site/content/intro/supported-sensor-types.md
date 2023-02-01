@@ -6,8 +6,6 @@ menuPre = "<i class='fas fa-plus-square'></i> "
 tags = ["usage,docs"]
 +++
 
-Supported sensor types
-
 | Sensor type ID | Description |
 |----------------|-------------|
 | qalcosonic | |
