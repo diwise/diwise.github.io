@@ -6,8 +6,6 @@ menuPre = "<i class='fas fa-plus-square'></i> "
 tags = ["usage,docs"]
 +++
 
-Measurements
-
 ### AirQuality   
 [urn:oma:lwm2m:ext:3428](https://github.com/OpenMobileAlliance/lwm2m-registry/blob/prod/3428.xml)
 ### Conductivity 
