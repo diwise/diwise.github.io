@@ -9,13 +9,9 @@ tags = ["cip"]
 
 This service is a distribution broker that federates information from multiple underlying NGSI-LD Context Brokers and across domains. It is responsible for implementing selected parts of the NGSI-LD API and limit the exposure of underlying services.
 
-### Architectural Description
+## Architecture
 
-### Dependencies
-
-This service has compile time dependencies on service-chassis and open policy agent.
-
-### Diagram
+### Diagrams
 
 {{< mermaid >}}
 C4Container
