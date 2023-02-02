@@ -1,7 +1,7 @@
 +++
 archetype = "chapter"
-title = "Configuration"
-url = "configuration"
+title = "Deployment"
+url = "deployment"
 weight = 5
 menuPre = "<i class='fas fa-tools'></i> "
 +++
