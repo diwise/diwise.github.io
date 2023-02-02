@@ -2,8 +2,9 @@
 title = "Environments"
 url = "intro/environments"
 description = ""
-menuPre = "<i class='fas fa-plus-square'></i> "
+menuPre = "<i class='fas fa-map'></i> "
 tags = ["usage,docs"]
+weight = 3
 +++
 
 | Environment | Description |
@@ -13,3 +14,4 @@ tags = ["usage,docs"]
 | indoors | |
 | lifebuoy | |
 | soil | |
+

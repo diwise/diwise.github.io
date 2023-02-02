@@ -2,8 +2,9 @@
 title = "Measurements"
 url = "intro/measurements"
 description = ""
-menuPre = "<i class='fas fa-plus-square'></i> "
+menuPre = "<i class='fas fa-ruler'></i> "
 tags = ["usage,docs"]
+weight = 2
 +++
 
 ### AirQuality   
