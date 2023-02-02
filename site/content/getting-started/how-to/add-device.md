@@ -2,14 +2,13 @@
 title = "Add a device"
 url = "getting-started/how-to/add-device"
 description = "How to add a known device"
-menuPre = "<i class='fas fa-plus-square'></i>"
+menuPre = "<i class='fas fa-plus-square'></i> "
 tags = ["usage,docs"]
 +++
 
 {{% notice style="primary" title="Heads up!" icon="skull-crossbones" %}}
 The device/sensor that should be added need to be of a known type, that is, a decoder for the type of sensor must already exist and the device/sensor should be provisioned within the LoRa application server.
 {{% /notice %}}
-
 
 ## How to add a new sensor
 

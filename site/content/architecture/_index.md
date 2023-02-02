@@ -9,6 +9,4 @@ alwaysopen = true
 
 ## Contents
 
-Under construction, pardon the mess...
-
-{{% children sort="title" %}}
+{{% children sort="weight" description="true" %}}
