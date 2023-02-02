@@ -1,7 +1,7 @@
 +++
 title = "Submit an issue"
 url = "getting-started/how-to/submit-issues"
-menuPre = "<i class='fas fa-bug'></i>"
+menuPre = "<i class='fas fa-exclamation-triangle'></i>"
 tags = ["usage,docs"]
 +++
 

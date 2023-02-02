@@ -2,7 +2,7 @@
 title = "Contribute"
 url = "getting-started/how-to/contribute"
 description = "How to contribute code or report issues"
-menuPre = "<i class='fas fa-satellite-dish'></i> "
+menuPre = "<i class='fas fa-people-carry'></i> "
 tags = ["usage,docs"]
 +++
 
