@@ -3,7 +3,7 @@ title = "Add a device"
 url = "getting-started/how-to/add-device"
 description = "How to add a known device"
 menuPre = "<i class='fas fa-plus-square'></i> "
-tags = ["usage,docs"]
+tags = ["usage", "docs"]
 +++
 
 {{% notice style="primary" title="Heads up!" icon="skull-crossbones" %}}

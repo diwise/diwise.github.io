@@ -3,7 +3,7 @@ title = "Supported sensor types"
 url = "intro/supported-sensor-types"
 description = ""
 menuPre = "<i class='fas fa-microchip'></i> "
-tags = ["usage,docs"]
+tags = ["usage", "docs"]
 weight = 1
 +++
 
