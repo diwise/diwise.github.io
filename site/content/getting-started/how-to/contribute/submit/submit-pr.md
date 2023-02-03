@@ -5,4 +5,4 @@ menuPre = "<i class='fas fa-code-branch'></i> "
 tags = ["usage", "docs"]
 +++
 
-Information on how to contribute code to diwise.
+If you have created a bug fix or built a feature that you want to be incorporated into diwise, please submit a pull request using the template available on [github.com](https://github.com/diwise).
