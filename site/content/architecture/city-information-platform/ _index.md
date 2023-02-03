@@ -4,6 +4,7 @@ url = "architecture/cip"
 description = "How we integrate different smart city components into a greater whole."
 menuPre = "<i class='fas fa-city'></i> "
 weight = 2
+tags = ["arch", "cip"]
 +++
 
 ## Container Diagram

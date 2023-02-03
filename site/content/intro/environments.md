@@ -3,7 +3,7 @@ title = "Environments"
 url = "intro/environments"
 description = ""
 menuPre = "<i class='fas fa-map'></i> "
-tags = ["usage", "docs"]
+tags = ["intro", "configuration"]
 weight = 3
 +++
 

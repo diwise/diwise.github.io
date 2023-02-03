@@ -4,6 +4,7 @@ url = "architecture/iot"
 description = "Aggregates data from different platforms."
 menuPre = "<i class='fas fa-cubes'></i> "
 weight = 3
+tags = ["arch", "iot"]
 +++
 
 ## Container Diagram

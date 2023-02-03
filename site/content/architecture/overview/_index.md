@@ -4,6 +4,7 @@ url = "architecture/overview"
 description = "Describes the two main logical components of diwise."
 weight = 1
 menuPre = "<i class='fas fa-satellite'></i> "
+tags = ["arch"]
 +++
 
 

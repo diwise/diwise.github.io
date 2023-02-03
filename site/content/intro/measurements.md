@@ -3,7 +3,7 @@ title = "Measurements"
 url = "intro/measurements"
 description = ""
 menuPre = "<i class='fas fa-ruler'></i> "
-tags = ["usage", "docs"]
+tags = ["intro", "configuration"]
 weight = 2
 +++
 
