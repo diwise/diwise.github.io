@@ -29,9 +29,9 @@ a1b2bc3d4e5f6;intern-a1b2bc3d4e5f6;0;0;air;urn:oma:lwm2m:ext:3303;tem_lab_14ns;;
 | internalID | DeviceID used in diwise |
 | lat | Latitude |
 | lon | Longitude |
-| where | [Environments]({{< ref "/intro/environments" >}}) |
-| types | [type of measurements]({{< ref "/intro/measurements" >}}) |
-| decoder | name of the decoder to use, [supported sensor types]({{< ref "/intro/supported-sensor-types" >}}) |
+| where | [Environments]({{< relref "/intro/environments" >}}) |
+| types | [type of measurements]({{< relref "/intro/measurements" >}}) |
+| decoder | name of the decoder to use, [supported sensor types]({{< relref "/intro/supported-sensor-types" >}}) |
 | name | Display name to be used i dashboard |
 | description | Description to be used in dashboard |
 | active | true or false, only active sensors will pubslish output |
@@ -40,7 +40,7 @@ a1b2bc3d4e5f6;intern-a1b2bc3d4e5f6;0;0;air;urn:oma:lwm2m:ext:3303;tem_lab_14ns;;
 
 ### Compose override
 
-Ensure that your [Development environment]({{< ref "/getting-started/how-to/devenvironment" >}}) is set up accordantly.
+Ensure that your [Development environment]({{< relref "/getting-started/how-to/devenvironment" >}}) is set up accordantly.
 
 Then create an [docker compose override file](https://docs.docker.com/compose/extends/) with your custom settings and modified *30.devices.csv* with your added sensor.  
 
@@ -109,14 +109,14 @@ For now we're interested the following attributes:
 | Attribute   | Description |
 | ----------- | ----------- |
 | deviceID    | The internal ID that will be used by diwise |
-| sensorType  | the type of sensor, see [Supported sensor types]({{< ref "/intro/supported-sensor-types" >}}). Used to select a decoder to decode the sensor payload |
+| sensorType  | the type of sensor, see [Supported sensor types]({{< relref "/intro/supported-sensor-types" >}}). Used to select a decoder to decode the sensor payload |
 | active      | only active sensors will send measurements. |
-| types       | type of measurement that the sensor will provide, see [type of measurements]({{< ref "/intro/measurements" >}}) |
-| environment | additional information about the sensor, see [environments]({{< ref "/intro/environments" >}}) |
+| types       | type of measurement that the sensor will provide, see [type of measurements]({{< relref "/intro/measurements" >}}) |
+| environment | additional information about the sensor, see [environments]({{< relref "/intro/environments" >}}) |
 
 ### Output
 
-The decoded payload is converted to one or many measurements by [iot-agent]({{< ref "/services/iot-agent" >}}) **(3-5)**, enriched in [iot-core]({{< ref "/services/iot-core" >}}) **(6, 7)** and finally serialized as [SenML](https://www.rfc-editor.org/rfc/rfc8428) and published **(8)** on a rabbitMQ topic.
+The decoded payload is converted to one or many measurements by [iot-agent]({{< relref "/services/iot-agent" >}}) **(3-5)**, enriched in [iot-core]({{< relref "/services/iot-core" >}}) **(6, 7)** and finally serialized as [SenML](https://www.rfc-editor.org/rfc/rfc8428) and published **(8)** on a rabbitMQ topic.
 
 In the output we find sensorID = deviceID. The *pack* is divided into several *records*, the first record contains the type of measurement, `bn`, and a timestamp in unix time,  `bt`.
 
