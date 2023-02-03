@@ -129,7 +129,7 @@ The second record contains the measurement value, in this case it's a *SensorVal
         {
             "n": "5700",
             "v": -5.8
-        },
+        }
 ```
 
-This *record* shows that a sensor value (`"n": "5700"`) of type float has the value *-5.8*. See the SenML specification for more information.
+This *record* shows that a sensor value (`"n": "5700"`) of type float has the value *-5.8*. See the [SenML](https://www.rfc-editor.org/rfc/rfc8428) specification for more information.
