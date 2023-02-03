@@ -26,35 +26,35 @@ weight = 1
 
 #### elsys_codec
 
-- Temperature         
-- ExternalTemperature 
-- Vdd                 
-- CO2                 
-- Humidity            
-- Light               
-- Motion              
-- Occupancy           
-- DigitalInput        
-- DigitalInputCounter 
+- Temperature
+- ExternalTemperature
+- Vdd
+- CO2
+- Humidity
+- Light
+- Motion
+- Occupancy
+- DigitalInput
+- DigitalInputCounter
 
 Depends on the [Generic Javascript decoder](https://www.elsys.se/en/elsys-payload/) being installed in the LoRaWAN application server
 
 #### enviot
 
-- Battery     
-- Humidity    
+- Battery
+- Humidity
 - SensorStatus
 - SnowHeight  
-- Temperature 
+- Temperature
 
  Depends on external javascript decoder being installed in LoRaWAN application server
 
 #### milesight_am100
 
 - Temperature
-- Humidity   
-- CO2        
-- Battery    
+- Humidity
+- CO2
+- Battery
 
  Depends on external [decoder](https://github.com/Milesight-IoT/SensorDecoders/tree/main/AM_Series/AM100_Series) being installed in the LoRaWAN application server
 
@@ -73,7 +73,7 @@ Depends on the [Generic Javascript decoder](https://www.elsys.se/en/elsys-payloa
 
 #### cube02
 
-- BatteryVoltage 
-- Resistances    
+- BatteryVoltage
+- Resistances
 - SoilMoistures  
-- Temperature    
+- Temperature
