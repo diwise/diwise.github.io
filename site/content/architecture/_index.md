@@ -5,10 +5,9 @@ url = "architecture"
 weight = 2
 menuPre = "<i class='far fa-compass'></i> "
 alwaysopen = true
+tags = ["arch"]
 +++
 
 ## Contents
 
-Under construction, pardon the mess...
-
-{{% children sort="title" %}}
+{{% children sort="weight" description="true" %}}

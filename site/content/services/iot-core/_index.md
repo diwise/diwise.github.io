@@ -1,13 +1,13 @@
 +++
-title = "IoT Agent"
-url = "services/iot-agent"
-menuPre = "<i class='fas fa-satellite-dish'></i> "
+title = "IoT Core"
+url = "services/iot-core"
+menuPre = "<i class='fas fa-arrows-alt'></i> "
 tags = ["iot"]
 +++
 
 ## Description
 
-The iot-agent service is responsible for connecting to an underlying platform via MQTT and ingest messages from the topics it subscribes to.
+The iot-core service is responsible for enriching and accepting incoming messages for further processing.
 
 ## Architecture
 
@@ -16,28 +16,38 @@ The iot-agent service is responsible for connecting to an underlying platform vi
 {{< mermaid >}}
 C4Component
 
-    Container_Boundary(b1, "iot-agent") {
+    Container_Boundary(b1, "iot-core") {
 
-        Container_Boundary(apib, "API") {
-            Component(api, "API", "", "handles incoming messages")
+        Container_Boundary(infra, "infrastructure") {
+            Component(listener, "Queue Listener", "", "listens for commands posted to<br>the iot-core queue")
         }
-
-        Container_Boundary(msgp, "Message Processor") {
-            Component(decoderreg, "Decoder Registry", "", "contains all available decoders")
-            Component(decoder, "Decoder", "", "decodes incoming sensor specific<br>payloads to internal format")
-            Component(converterreg, "Converter Registry", "", "contains all available converters")
-            Component(converter, "Converter", "", "converts internal format<br>to LWM2M SenML")
+        
+        Container_Boundary(app, "application") {
+            Component(processor, "Message Processor", "", "processes received messages, enriches<br>and accepts them for further processing")
         }
-
-        Container_Boundary(evts, "Event Sender") {
-            Component(sender, "Sender")
-        }
-
-        Component(mqtt-client, "MQTT Client")
-
     }
 
-    UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="3")
+    Container_Boundary(b3, "iot-device-mgmt") {
+        Container_Ext(devmgmt, "Device Management", "", "manages information about<br>connected devices")
+    }
+
+    Container_Boundary(b2, "messaging") {
+        Container_Ext(rabbitmq, "Rabbit MQ", "", "distributes internal messages within<br>the IoT platform")
+    }
+
+    Rel(processor, devmgmt, "fetches device information from")
+    UpdateRelStyle(processor, devmgmt, $offsetX="60", $offsetY="30")
+
+    Rel(rabbitmq, listener, "delivers message.received event<br>queue: iot-core")
+    UpdateRelStyle(rabbitmq, listener, $offsetX="-190", $offsetY="-10")
+
+    Rel(listener, processor, "forwards msgs<br>to")
+    UpdateRelStyle(listener, processor, $offsetX="-40", $offsetY="-30")
+
+    Rel(processor, rabbitmq, "posts accepted message<br>topic: message.accepted")
+    UpdateRelStyle(processor, rabbitmq, $offsetX="80", $offsetY="-10")
+
+    UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="2")
 
 {{< /mermaid >}}
 
@@ -45,12 +55,7 @@ C4Component
 
 #### Application
 
-This service exposes the following application endpoints:
-
-| Operation | Method | Endpoint | Description |
-| ---       | ---    | ---      | ---         |
-| Incoming Message | POST | /api/v0/messages | Accepts incoming message payloads for further processing |
-
+This service does not expose any application endpoints
 #### Probes
 
 A health endpoint, that can be used by kubernetes probes for instance, is exposed on the default port under /health. A future release will move this endpoint to a separate control and monitoring port.
@@ -59,7 +64,7 @@ A health endpoint, that can be used by kubernetes probes for instance, is expose
 
 | Where | Address |
 | ----- | ------- |
-| Git Hub | https://github.com/diwise/iot-agent |
+| Git Hub | https://github.com/diwise/iot-core |
 
 ## Run
 
@@ -76,15 +81,9 @@ Refer to the default docker compose configuration in https://github.com/diwise/d
 | Name | Type | Default | Description |
 | ---  | ---  | ---     | ---         |
 | DEV_MGMT_URL | url | **required** | URL to a service exposing the device management API. Typically an instance of iot-device-mgmt. |
-| MSG_FWD_ENDPOINT | url | **required** | An endpoint that incoming messages should be forwarded to. Typically this is /api/v0/messages on the same service. |
 | OAUTH2_TOKEN_URL | url | **required** | URL to an Open ID Connect token provider. |
 | OAUTH2_CLIENT_ID | string | **required** | The client credentials id to use when requesting a token. |
 | OAUTH2_CLIENT_SECRET | string | **required** | The client secret (password) to use when requesting a token. |
-| APPSERVER_FACADE | string | chirpstack | Configures how to interpret incoming message payloads. |
-| MQTT_HOST | hostname | **required** | Specify the MQTT host to connect to. |
-| MQTT_USER | string |  | The username (if any) used to authenticate with the MQTT server. |
-| MQTT_PASSWORD | string |  | The password (if any) used to authenticate with the MQTT server. |
-| MQTT_TOPIC_[x] | string | at least one required | Any number of zero indexed MQTT topics that should be subscribed to on successful connect. |
 | SERVICE_PORT | integer | 8080 | The port to accept incoming connections on |
 
 #### Command line flags
@@ -111,9 +110,7 @@ All logging is sent to stdout in a structured json format so that it can be filt
 
 #### Metrics
 
-| Name | Type | Description |
-| ---  | ---  | ---         |
-| mqtt.messages | counter | Total number of received mqtt messages |
+There are currently no application specific metrics emitted from this service, but there will be. We promise.
 
 #### Tracing
 
@@ -121,9 +118,8 @@ The following traces are created at the application level:
 
 | Span | Attributes | Created By | Description |
 | ---  | ---        | ---        | ---         |
-| forward-message | *none* | messagehandler | Spans the operation from the time the MQTT message handler recieves a message handler, until the forwarding endpoint returns a result. |
-| incoming-message | _none_ | api | Spans the operation of processing an incoming message payload. |
-| find-device-from-deveui | *none* | device mgmt client | Spans a request to device management's /api/v0/devices?devEUI=<<id>> endpoint. |
+| rcv-cmd | *none* | main | Spans the handling of an incoming command on the iot-core queue. |
+| find-device-from-id | *none* | device mgmt client | Spans a request to device management's /api/v0/devices/{deviceId} endpoint. |
 
 ### Run Book
 
