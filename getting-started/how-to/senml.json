@@ -1,0 +1,32 @@
+{
+    "sensorID": "intern-a1b2bc3d4e5f6",
+    "pack": [
+        {
+            "bn": "urn:oma:lwm2m:ext:3303",
+            "bt": 1675258662,
+            "n": "0",
+            "vs": "intern-a1b2bc3d4e5f6"
+        },
+        {
+            "n": "5700",
+            "v": -5.8
+        },
+        {
+            "u": "lat",
+            "v": 0
+        },
+        {
+            "u": "lon",
+            "v": 0
+        },
+        {
+            "n": "env",
+            "vs": "air"
+        },
+        {
+            "n": "tenant",
+            "vs": "default"
+        }
+    ],
+    "timestamp": "2023-02-01T13:37:00.000000000Z"
+}
