@@ -20,15 +20,14 @@ C4Container
     System_Ext(cip-p, "City Information Platform", "Stores and provides current and<br>historical city information")
 
     Container_Boundary(c1, "IoT Platform") {
-
+                
         Container(iot-dev-mgmt, "iot-device-mgmt", $techn="Go", "Backend service for device management")
         Container(iot-agent, "iot-agent", $techn="Go", "Decodes and translates incoming messages")
         Container(iot-tr-fw, "iot-transform-fiware", $tech="Go", "Transforms accepted messages into<br>corresponding datamodels known<br>to the City Information Platform")
-
-        ContainerDb_Ext(pgsql, "PostgreSQL Database", "SQL Database", "To be used for storing information<br>about device types and tenants.")
-
+        Container(iot-events, "iot-events", $tech="Go", "Publishing events to UI, cloudevents and more")
         Container(iot-core, "iot-core", $tech="Go", "Decorates received messages and accepts<br>them for further processing")
-
+        
+        ContainerDb_Ext(pgsql, "PostgreSQL Database", "SQL Database", "To be used for storing information<br>about device types and tenants.")
 
         SystemQueue_Ext(rmq, "RabbitMQ", "Message bus used for internal<br>publish/subscribe between services.")
     }
@@ -41,6 +40,7 @@ C4Container
 
     Rel(dev-mgmt-web, keycloak, "Get JWT access token", "OAuth2")
     Rel(dev-mgmt-web, iot-dev-mgmt, "Manage devices", "https, REST")
+    Rel(dev-mgmt-web, iot-events, "Live updates", "https, SSE")
 
     UpdateRelStyle(dev-mgmt-web, keycloak, $offsetX="30", $offsetY="-20")
     UpdateRelStyle(dev-mgmt-web, iot-dev-mgmt, $offsetX="-110", $offsetY="-50")
@@ -48,6 +48,11 @@ C4Container
     Rel(iot-agent, mqtt, "subscribe to incoming<br>message payloads", "amqp")
     Rel(iot-agent, iot-dev-mgmt, "validate and<br>identify device", "https, OAuth2")
     Rel(iot-agent, iot-core, "event:<br>message.received", "queue: iot-core")
+
+    Rel(iot-events, iot-core, "event:<br>message.received", "queue: iot-core")
+    Rel(iot-events, iot-dev-mgmt, "event:<br>#", "queue: #")
+    Rel(iot-events, iot-agent, "event:<br>device-status", "queue: iot-agent")
+
 
     UpdateRelStyle(iot-agent, mqtt, $offsetX="50", $offsetY="-50")
     UpdateRelStyle(iot-agent, iot-dev-mgmt, $offsetX="-40", $offsetY="-50")
